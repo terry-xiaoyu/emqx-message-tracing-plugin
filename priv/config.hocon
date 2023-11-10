@@ -1,0 +1,10 @@
+## This is a demo config in HOCON format
+## The same format used by EMQX since 5.0
+
+emqx_message_tracing_plugin {
+    enable = true
+    file_handler {
+        enable = true
+        filename = "/tmp/message_tracing.log"
+    }
+}

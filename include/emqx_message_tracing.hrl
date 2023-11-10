@@ -1,0 +1,3 @@
+-define(CONFIG_ROOT, emqx_message_tracing_plugin).
+-define(CONFIG_PATH(PATH), [?CONFIG_ROOT, PATH]).
+-define(CONFIG_PATH(PATH1, PATH2), [?CONFIG_ROOT, PATH1, PATH2]).

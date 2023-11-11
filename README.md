@@ -14,7 +14,11 @@ Message tracing plugin for EMQX 5.3.x.
 
 ## Install
 
-1. Build
+1. Get the package
+
+Download the `tar.gz` package from the releases page: https://github.com/terry-xiaoyu/emqx-message-tracing-plugin/releases
+
+Or you can build by yourself from the source code:
 
 ```shell
 make rel

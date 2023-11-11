@@ -186,7 +186,8 @@ notify_message_acked_by_client(#message{id = Id} = Message, _ClientInfo) ->
 
 notify_message_dropped(#message{id = Id}, Reason) ->
     ?IF_ALLOW_TO_NOTIFY(message_dropped,
-        case Reason =:= no_subscribers andalso emqx_message_tracing_plugin:dont_notify_no_subscriber_drop() of
+        case Reason =:= no_subscribers andalso
+             (not emqx_message_tracing_plugin:notify_no_subscriber_drop()) of
             true -> ok;
             false ->
                 emqx_message_tracing_proxy:notify(with_basic_fields(message_dropped,

@@ -13,7 +13,7 @@
         , is_payload_compression_enabled/0
         , enable_payload_compression_enabled/0
         , disable_payload_compression_enabled/0
-        , dont_notify_no_subscriber_drop/0
+        , notify_no_subscriber_drop/0
         , get_file_handler_configs/0
         ]).
 
@@ -52,8 +52,8 @@ disable_payload_compression_enabled() ->
 is_payload_compression_enabled() ->
     emqx:get_config(?CONFIG_PATH(payload_compression, enable), false).
 
-dont_notify_no_subscriber_drop() ->
-    emqx:get_config(?CONFIG_PATH(dont_notify_no_subscriber_drop), true).
+notify_no_subscriber_drop() ->
+    emqx:get_config(?CONFIG_PATH(message_dropped, notify_no_subscriber_drop), false).
 
 get_file_handler_configs() ->
     emqx:get_config(?CONFIG_PATH(file_handler), #{}).

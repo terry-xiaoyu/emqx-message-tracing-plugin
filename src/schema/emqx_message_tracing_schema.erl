@@ -93,7 +93,8 @@ fields(message_acked_by_client) ->
     ];
 fields(message_dropped) ->
     [
-        {enable, ?HOCON(boolean(), #{default => true})}
+        {enable, ?HOCON(boolean(), #{default => true})},
+        {notify_no_subscriber_drop, ?HOCON(boolean(), #{default => false})}
     ];
 fields(action_taken) ->
     [

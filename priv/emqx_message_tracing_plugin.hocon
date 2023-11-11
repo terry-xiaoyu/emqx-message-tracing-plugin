@@ -1,0 +1,48 @@
+## This is a demo config in HOCON format
+## The same format used by EMQX since 5.0
+
+emqx_message_tracing_plugin {
+    ## the primary switch that controls all events
+    enable = true
+    
+    ## secondary switches for each of the events
+    #client_connect.enable = true
+    #client_connack.enable = true
+    #client_connected.enable = true
+    #client_disconnected.enable = true
+    #session_subscribed.enable = true
+    #session_unsubscribed.enable = true
+    #session_discarded.enable = true
+    #session_takenover.enable = true
+    #session_terminated.enable = true
+    #message_received.enable = true
+    #message_acked_by_emqx.enable = true
+    #message_sent.enable = true
+    #message_acked_by_client.enable = true
+    #message_dropped.enable = true
+    #message_dropped.notify_no_subscriber_drop = false
+
+    file_handler {
+        enable = true
+
+        ## Specifies the base name of the log files.
+        filename = "/tmp/message_tracing.log"
+
+        ## Specifies if the log file should be rotated or not.
+        ## The value infinity means the log file will grow indefinitely, while
+        ##   a byte-size value specifies at which file size the file is rotated.
+        #max_no_bytes = "100MB"
+
+        ## Specifies the number of rotated log file archives to keep. This has
+        ##   meaning only if max_no_bytes is set to a byte-size value.
+        ## The log archives are named <file>.0, <file>.1, ... <file>.N,
+        ##   where <file> is the name specified by the 'filename' config. <file>.0 is
+        ##   the newest of the archives. The maximum value for N is the value of max_no_files minus 1.
+        ## Notice that setting this value to 0 does not turn off rotation. It
+        ##   only specifies that no archives are kept.
+        #max_no_files = 200
+
+        ## Compress the archived log files using gzip
+        #compress_on_rotate = true
+    }
+}

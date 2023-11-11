@@ -1,6 +1,16 @@
 # emqx_message_tracing_plugin
 
-Message tracing plugin for EMQX 5.3.x
+Message tracing plugin for EMQX 5.3.x.
+
+## Features
+
+- Track the clients
+  - The connect/connack/disconnect events
+  - [todo] Authentication/authorization for clients
+
+- Track the messages
+  - Message sent/received by clients
+  - [todo] Messages sent to data integrations
 
 ## Install
 
@@ -14,20 +24,9 @@ make rel
 ===> [emqx_plugrel] creating /Users/liuxy/code/emqx-message-tracing-plugin/_build/default/emqx_plugrel/emqx_message_tracing_plugin-1.0.0.tar.gz
 ```
 
-2. Install the `emqx_message_tracing_plugin-x.y.z.tar.gz` from the emqx dashboard
+2. Install the `emqx_message_tracing_plugin-x.y.z.tar.gz` via the emqx dashboard
 
-## Features
-
-- Track the clients
-  - connect/connack/disconnect
-  - message sent/received by a client
-  - [*] authentication/authorization for clients
-
-- Track the messages
-
-- [*] Messages sent to data integrations
-
-3. Logs will be save to files:
+3. For now it only outputs all of the events to files:
 
 ```shell
 tail -f /tmp/message_tracing.log
@@ -67,5 +66,5 @@ The config file is under the `plugins` directory of the installation directory o
 ```shell
 ls plugins/emqx_message_tracing_plugin-1.0.0/emqx_message_tracing_plugin-0.1.0/priv
 
-config.hocon
+emqx_message_tracing_plugin.hocon
 ```

@@ -22,8 +22,8 @@
 %%--------------------------------------------------------------------
 
 load_config() ->
-    ConfFile = filename:join([code:priv_dir(?MODULE), "config.hocon"]),
-    ok = emqx_config:init_load(emqx_message_tracing_schema, [ConfFile]).
+    ConfFile = filelib:wildcard(filename:join([code:priv_dir(?MODULE), "*.conf"])).,
+    ok = emqx_config:init_load(emqx_message_tracing_schema, ConfFile).
 
 enable() ->
     emqx:update_config(?CONFIG_PATH(enable), true).
